@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>متجر الثقة للهاتف المحمول</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Tahoma,sans-serif}
+body{background:#f5f6f8;color:#111827}
+button{border:0;cursor:pointer;font-family:inherit}
+.page{display:none;min-height:100vh}.page.active{display:block}
+.welcome{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px;background:linear-gradient(145deg,#0b1220,#17233a);color:white}
+.welcome-box{width:100%;max-width:430px}.logo{width:110px;height:110px;border-radius:30px;background:white;color:#1769e0;display:flex;align-items:center;justify-content:center;margin:0 auto 25px;font-size:42px;font-weight:bold}
+.welcome h1{font-size:30px;margin-bottom:12px}.welcome p{color:#cbd5e1;font-size:17px;line-height:1.8;margin-bottom:35px}
+.primary{width:100%;padding:16px;border-radius:14px;background:#1769e0;color:white;font-size:18px;font-weight:bold}
+.header{background:white;padding:16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(0,0,0,.08);position:sticky;top:0;z-index:10}
+.header-title{font-size:20px;font-weight:bold}.icon-btn{width:44px;height:44px;border-radius:12px;background:#f1f5f9;font-size:21px}
+.container{max-width:900px;margin:auto;padding:18px}.hero{background:linear-gradient(135deg,#1769e0,#0847a6);color:white;border-radius:22px;padding:28px 22px;margin-bottom:22px}
+.hero h2{font-size:28px;margin-bottom:10px}.hero p{color:#dbeafe;line-height:1.7}
+.search{width:100%;padding:15px;border:1px solid #ddd;border-radius:14px;margin-bottom:20px;font-size:16px;background:white}
+.section-title{font-size:22px;margin:20px 0 14px}.products{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.product{background:white;border-radius:18px;padding:12px;box-shadow:0 3px 15px rgba(0,0,0,.07)}.product-img{height:150px;border-radius:14px;background:#eef2f7;display:flex;align-items:center;justify-content:center;font-size:55px;margin-bottom:12px}
+.product h3{font-size:17px;margin-bottom:8px}.price{color:#1769e0;font-size:19px;font-weight:bold;margin-bottom:10px}.small-btn{width:100%;padding:11px;border-radius:10px;background:#1769e0;color:white}
+.detail{background:white;border-radius:20px;padding:20px}.detail-img{height:280px;border-radius:18px;background:#eef2f7;display:flex;align-items:center;justify-content:center;font-size:100px;margin-bottom:20px}
+.detail h1{margin-bottom:12px}.detail p{color:#64748b;line-height:1.8;margin:15px 0}.detail-price{font-size:27px;color:#1769e0;font-weight:bold;margin:20px 0}
+.cart-item{background:white;padding:15px;border-radius:15px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}.total{background:white;padding:20px;border-radius:16px;margin-top:20px}.total-row{display:flex;justify-content:space-between;font-size:20px;font-weight:bold}
+.form{background:white;padding:20px;border-radius:18px}.form label{display:block;margin-bottom:7px;font-weight:bold}.form input,.form textarea,.form select{width:100%;padding:14px;border:1px solid #d1d5db;border-radius:12px;margin-bottom:16px;font-size:16px}.form textarea{height:100px;resize:none}
+.bottom-nav{position:fixed;bottom:0;right:0;left:0;height:70px;background:white;display:flex;justify-content:space-around;align-items:center;box-shadow:0 -3px 15px rgba(0,0,0,.1);z-index:20}.nav-btn{background:none;color:#64748b;font-size:12px;text-align:center}.nav-btn span{display:block;font-size:24px;margin-bottom:3px}.nav-btn.active{color:#1769e0}
+.with-nav{padding-bottom:90px}.empty{text-align:center;padding:60px 20px;color:#64748b}.success{text-align:center;background:white;border-radius:20px;padding:40px 20px}.success-icon{width:80px;height:80px;border-radius:50%;background:#dcfce7;color:#16a34a;display:flex;align-items:center;justify-content:center;font-size:40px;margin:0 auto 20px}
+@media(min-width:700px){.products{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<section id="welcome" class="page active"><div class="welcome"><div class="welcome-box"><div class="logo">ث</div><h1>أهلاً بك</h1><h1>في متجر الثقة للهاتف المحمول</h1><p>وجهتك الأولى لشراء الهواتف المحمولة والإكسسوارات بأفضل الأسعار.</p><button class="primary" onclick="showPage('home')">الدخول إلى المتجر</button></div></div></section>
+
+<section id="home" class="page"><header class="header"><div class="header-title">متجر الثقة 📱</div><button class="icon-btn" onclick="showPage('cart')">🛒</button></header><main class="container with-nav"><div class="hero"><h2>أهلاً بك في متجر الثقة</h2><p>اكتشف أحدث الهواتف والإكسسوارات واستمتع بتجربة شراء سهلة وسريعة.</p></div><input class="search" type="search" placeholder="ابحث عن هاتف أو منتج..." oninput="searchProducts(this.value)"><h2 class="section-title">المنتجات</h2><div id="products" class="products"></div></main><nav class="bottom-nav"><button class="nav-btn active" onclick="showPage('home')"><span>🏠</span>الرئيسية</button><button class="nav-btn" onclick="showPage('productsPage')"><span>📱</span>المنتجات</button><button class="nav-btn" onclick="showPage('cart')"><span>🛒</span>السلة</button><button class="nav-btn" onclick="showPage('about')"><span>ℹ️</span>عنا</button></nav></section>
+
+<section id="productsPage" class="page"><header class="header"><button class="icon-btn" onclick="showPage('home')">→</button><div class="header-title">المنتجات</div><button class="icon-btn" onclick="showPage('cart')">🛒</button></header><main class="container with-nav"><h2 class="section-title">جميع المنتجات</h2><div id="allProducts" class="products"></div></main><nav class="bottom-nav"><button class="nav-btn" onclick="showPage('home')"><span>🏠</span>الرئيسية</button><button class="nav-btn active"><span>📱</span>المنتجات</button><button class="nav-btn" onclick="showPage('cart')"><span>🛒</span>السلة</button><button class="nav-btn" onclick="showPage('about')"><span>ℹ️</span>عنا</button></nav></section>
+
+<section id="details" class="page"><header class="header"><button class="icon-btn" onclick="showPage('home')">→</button><div class="header-title">تفاصيل المنتج</div><button class="icon-btn" onclick="showPage('cart')">🛒</button></header><main class="container"><div class="detail"><div id="detailImg" class="detail-img">📱</div><h1 id="detailName">اسم الهاتف</h1><div id="detailPrice" class="detail-price">0 د.ل</div><p id="detailDescription">تفاصيل المنتج ستظهر هنا.</p><button class="primary" onclick="addCurrentProduct()">إضافة إلى السلة 🛒</button></div></main></section>
+
+<section id="cart" class="page"><header class="header"><button class="icon-btn" onclick="showPage('home')">→</button><div class="header-title">سلة المشتريات</div><div></div></header><main class="container"><div id="cartItems"></div><div id="cartTotal" class="total"></div></main></section>
+
+<section id="checkout" class="page"><header class="header"><button class="icon-btn" onclick="showPage('cart')">→</button><div class="header-title">إتمام الطلب</div><div></div></header><main class="container"><div class="form"><label>الاسم</label><input id="customerName" type="text" placeholder="أدخل اسمك"><label>رقم الهاتف</label><input id="customerPhone" type="tel" placeholder="09xxxxxxxx"><label>العنوان</label><textarea id="customerAddress" placeholder="أدخل عنوان التوصيل"></textarea><label>طريقة الدفع</label><select id="payment"><option>الدفع عند الاستلام</option><option>تحويل مصرفي</option></select><button class="primary" onclick="finishOrder()">تأكيد الطلب</button></div></main></section>
+
+<section id="success" class="page"><main class="container"><div class="success"><div class="success-icon">✓</div><h1>تم إرسال طلبك بنجاح</h1><p style="margin:20px 0;color:#64748b;line-height:1.8">شكراً لتسوقك من متجر الثقة للهاتف المحمول. سيتم التواصل معك لتأكيد الطلب.</p><button class="primary" onclick="showPage('home')">العودة إلى المتجر</button></div></main></section>
+
+<section id="about" class="page"><header class="header"><button class="icon-btn" onclick="showPage('home')">→</button><div class="header-title">عن المتجر</div><div></div></header><main class="container"><div class="detail"><div class="detail-img">🏪</div><h1>متجر الثقة للهاتف المحمول</h1><p>متجر متخصص في بيع الهواتف المحمولة والإكسسوارات وتوفير تجربة شراء سهلة وسريعة للعملاء.</p><p>هدفنا توفير منتجات متنوعة وأسعار مناسبة وخدمة عملاء مميزة.</p><button class="primary" onclick="showPage('home')">تصفح المنتجات</button></div></main></section>
+
+<script>
+const products=[
+{id:1,name:"iPhone 15",price:3200,icon:"📱",description:"هاتف iPhone 15 بأداء قوي وتصميم عصري."},
+{id:2,name:"Samsung Galaxy S24",price:2800,icon:"📱",description:"هاتف سامسونج Galaxy S24 مع شاشة عالية الجودة."},
+{id:3,name:"Honor X9d",price:1900,icon:"📱",description:"هاتف Honor X9d بأداء ممتاز وبطارية قوية."},
+{id:4,name:"سماعات لاسلكية",price:180,icon:"🎧",description:"سماعات لاسلكية بجودة صوت ممتازة."},
+{id:5,name:"شاحن سريع",price:120,icon:"🔌",description:"شاحن سريع للهواتف المحمولة."},
+{id:6,name:"كابل شحن",price:60,icon:"🔗",description:"كابل شحن ونقل بيانات عالي الجودة."}
+];
+let cart=[],currentProduct=null;
+function showPage(id){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0);if(id==="cart")renderCart();}
+function renderProducts(list=products){const html=list.map(p=>`<div class="product"><div class="product-img">${p.icon}</div><h3>${p.name}</h3><div class="price">${p.price} د.ل</div><button class="small-btn" onclick="openProduct(${p.id})">عرض المنتج</button></div>`).join("");document.getElementById("products").innerHTML=html;document.getElementById("allProducts").innerHTML=html;}
+function searchProducts(v){const t=v.trim().toLowerCase();renderProducts(t?products.filter(p=>p.name.toLowerCase().includes(t)):products);}
+function openProduct(id){currentProduct=products.find(p=>p.id===id);if(!currentProduct)return;detailImg.textContent=currentProduct.icon;detailName.textContent=currentProduct.name;detailPrice.textContent=currentProduct.price+" د.ل";detailDescription.textContent=currentProduct.description;showPage("details");}
+function addCurrentProduct(){if(!currentProduct)return;const x=cart.find(i=>i.id===currentProduct.id);x?x.quantity++:cart.push({...currentProduct,quantity:1});showPage("cart");}
+function renderCart(){const c=document.getElementById("cartItems"),t=document.getElementById("cartTotal");if(!cart.length){c.innerHTML=`<div class="empty"><div style="font-size:60px">🛒</div><h2>السلة فارغة</h2><p style="margin:12px 0 25px">لم تضف أي منتجات إلى السلة بعد.</p><button class="primary" onclick="showPage('productsPage')">تصفح المنتجات</button></div>`;t.innerHTML="";return;}c.innerHTML=cart.map(i=>`<div class="cart-item"><div><strong>${i.icon} ${i.name}</strong><div style="margin-top:7px;color:#1769e0">${i.price} د.ل × ${i.quantity}</div></div><button class="icon-btn" onclick="removeFromCart(${i.id})">🗑️</button></div>`).join("");const total=cart.reduce((s,i)=>s+i.price*i.quantity,0);t.innerHTML=`<div class="total-row"><span>الإجمالي</span><span>${total} د.ل</span></div><button class="primary" style="margin-top:18px" onclick="showPage('checkout')">متابعة الطلب</button>`;}
+function removeFromCart(id){cart=cart.filter(i=>i.id!==id);renderCart();}
+function finishOrder(){const n=customerName.value.trim(),p=customerPhone.value.trim(),a=customerAddress.value.trim();if(!n||!p||!a){alert("يرجى تعبئة جميع البيانات");return;}cart=[];showPage("success");}
+renderProducts();
+</script>
+</body>
+</html>
